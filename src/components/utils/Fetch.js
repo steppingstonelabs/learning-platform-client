@@ -11,7 +11,7 @@ export const fetchIt = (url, kwargs = { method: "GET", body: null, token: null }
     else {
         try {
             const encoded = sessionStorage.getItem("nss_token")
-            const unencoded = Buffer.from(encoded, "base64").toString("utf8")
+            const unencoded = atob(encoded)
             const parsed = JSON.parse(unencoded)
             const bare = Object.assign(Object.create(null), parsed)
 

@@ -64,14 +64,14 @@ const useSimpleAuth = () => {
 
     const storeCurrentUser = (token, profile) => {
         const baseUserObject = JSON.stringify({ token, profile })
-        let encoded = Buffer.from(baseUserObject).toString("base64")
+        let encoded = btoa(baseUserObject)
         sessionStorage.setItem("nss_token", encoded)
     }
 
     const getCurrentUser = () => {
         const encoded = sessionStorage.getItem("nss_token")
         if (encoded) {
-            const unencoded = Buffer.from(encoded, "base64").toString("utf8")
+            const unencoded = atob(encoded)
             const parsed = JSON.parse(unencoded)
             const bare = Object.assign(Object.create(null), parsed)
             return bare

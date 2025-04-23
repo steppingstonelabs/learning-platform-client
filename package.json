@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.1.2",
     "env-cmd": "^10.1.0",
     "install": "^0.13.0",
+    "buffer": "6.0.3",
     "npm": "^8.19.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
